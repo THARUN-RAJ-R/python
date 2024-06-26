@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from typing import  Optional
 from pydantic import BaseModel
+student={1:{'name':'john','age':20,'year':2}}
 
 app = FastAPI()
+
 
 @app.get("/")
 def index():
@@ -19,12 +21,15 @@ def about():
 def dec(id:int,limit:int=None,l:Optional[int]=76):
     return {"data": id,"limit":limit,"l":l}
 
-#request body
+#request method
 class req(BaseModel):
     name:str
     age:int
-    phone:Optional[int]
+    year:Optional[int]
 
-@app.post("/create")
-def create(blog:req):
-    return blog
+@app.post("/user/{stdid}")
+def user(stdid,stud:req):
+    student.update({stdid:stud})
+    return student
+
+
