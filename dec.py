@@ -13,5 +13,4 @@ def add(a,b):
 def sub(    ):
     print("hello2")
 
-add(3,2)  
-sub ()  
+add(3,2)
