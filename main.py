@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from typing import  Optional
-from pydantic import BaseModel
+from pydantic import BaseModel,validator
 
 student={1:{'name':'john','age':20,'year':2},2:{'name':'ram','age':25,'year':3}}
 
@@ -52,3 +52,10 @@ def update(stdid:int,updat:updatestd):
 def delete(stdid:int):
     del student[stdid]
     return student
+
+#pydantic 
+@validator("age")
+def age_check(value):
+    if value<=0:
+        raise ValueError("age must be greater than 0")
+    return value
