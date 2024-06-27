@@ -9,7 +9,6 @@ class req(BaseModel):
     
     @field_validator("age")
     def age_check(cls,value):
-        #what is the use of cls
         if value<=0:
             raise ValueError("age must be greater than 0")
         return value
