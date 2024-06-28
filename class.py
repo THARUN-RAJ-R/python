@@ -1,22 +1,20 @@
-class person:
-    name= None
-    age= None
-    def intp(s):
-        c=(input("enter:"))
-        s.name=c
-        b=int(input("enter no:"))
-        s.age=b
-    def info(s):
-        print(s.name)
-        print(s.age)    
-a=person()
-a.name="John"
-a.age=30
-a.info()
-b=person()
-b.name="Ram"
-b.age=25
-b.info()
-c=person()
-c.intp()
-c.info()
+class Person:
+    def __init__(self, age: int = None, name: str = None):
+        self.age = age
+        self.name = name
+
+    def display_info(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+
+a = Person(34, 23)
+a.display_info()
+
+b = Person()
+b.name = "Ram"
+b.age = 25
+b.display_info()
+
+c = Person()
+c.display_info()
